@@ -3,18 +3,27 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { Button } from './components/ui/button'
+import { Navigate, Outlet } from 'react-router-dom'
+import { useUser } from '@clerk/clerk-react'
+
+
 
 function App() {
   const [count, setCount] = useState(0)
+  const { user, isLoaded, isSignedIn } = useUser();
+
+  if (!isSignedIn&&isLoaded)
+  {
+    return <Navigate to={'/auth/signin'} />
+  }
 
   return (
     <>
-      Resuma Builder
-      <button className='bg-blue-400 text-white w-full rounded-sm p-2'></button>
-      <Button></Button>
+   <Outlet/>
       
     </>
   ) 
 }
 
 export default App
+ 
