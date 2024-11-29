@@ -4,7 +4,8 @@ import './index.css'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import SingInPage from './auth/signin/index.jsx'
-import { Home } from 'lucide-react'
+import Home from './home/index.jsx'
+import Dashboard from './dashboard/index.jsx'
 import { ClerkProvider } from '@clerk/clerk-react'
 
 
